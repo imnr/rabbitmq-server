@@ -449,7 +449,7 @@ status() ->
                 [{running_nodes, RunningNodes},
                  {cluster_name,  rabbit_nodes:cluster_name()},
                  {partitions,    mnesia_partitions(RunningNodes)},
-                 {leader,        get_leader()}];
+                 {mnevis_leader, get_mnevis_leader()}];
             false ->
                 []
         end.
@@ -1086,7 +1086,7 @@ is_leader(Node) ->
             false
     end.
 
-get_leader() ->
+get_mnevis_leader() ->
     {ok, _, {_, Node}} = ra:members(mnevis_node:node_id()),
     Node.
 
